@@ -11,7 +11,7 @@ import GameCard from './GameCard';
 import GameCardContainer from './GameCardContainer';
 import GameCardSkeleton from './GameCardSkeleton';
 
-const GameGrid = () => {
+const DeveloperGrid = () => {
 
   const {
     data,
@@ -25,8 +25,8 @@ const GameGrid = () => {
   const skeletons = [1, 2, 3, 4, 5, 6];
 
   if (error) return <Text>{error.message}</Text>;
-
-  // 返回的数量
+  
+  // 请求的数据数量
   const fetchedGamesCount =
     data?.pages.reduce(
       (total, page) => total + page.results.length,
@@ -42,7 +42,9 @@ const GameGrid = () => {
     >
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
-        spacing={6}
+        // 单元格之间的间距        
+        spacing={6}        
+        // 内容和容器之间的内边距
         padding="10px"
       >
         {isLoading &&
@@ -66,4 +68,4 @@ const GameGrid = () => {
   );
 };
 
-export default GameGrid;
+export default DeveloperGrid;

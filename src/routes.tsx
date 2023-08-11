@@ -5,7 +5,6 @@ import HomePage from "./pages/HomePage";
 import Layout from "./pages/Layout";
 
 const router = createBrowserRouter([
-
   {
     path: '/',
     element: <Layout />,
@@ -16,7 +15,6 @@ const router = createBrowserRouter([
       { path: 'games/:slug', element: <GameDetailPage /> }
     ]
   }
-  
 ]);
 
 export default router;
