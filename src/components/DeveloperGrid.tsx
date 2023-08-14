@@ -6,13 +6,13 @@ import {
 
 import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import useGames from '../hooks/useGames';
-import GameCard from './GameCard';
 import GameCardContainer from './GameCardContainer';
 import GameCardSkeleton from './GameCardSkeleton';
+import useDeveloper from '../hooks/useDeveloper';
+import DeveloperCard from './DeveloperCard';
 
 const DeveloperGrid = () => {
-
+  
   const {
     data,
     error,
@@ -20,19 +20,19 @@ const DeveloperGrid = () => {
     isFetchingNextPage,
     fetchNextPage,
     hasNextPage,
-  } = useGames();
+  } = useDeveloper();
 
   const skeletons = [1, 2, 3, 4, 5, 6];
 
   if (error) return <Text>{error.message}</Text>;
   
+  console.log(data);
+  console.log(data?.pages);
   // 请求的数据数量
   const fetchedGamesCount =
     data?.pages.reduce(
-      (total, page) => total + page.results.length,
-      0
-    ) || 0;
-
+      (total, page) => total + page.results.length, 0) || 0;
+      
   return (
     <InfiniteScroll
       dataLength={fetchedGamesCount}
@@ -52,13 +52,12 @@ const DeveloperGrid = () => {
             <GameCardContainer key={skeleton}>
               <GameCardSkeleton />
             </GameCardContainer>
-          ))}                                              
+          ))}                            
         {data?.pages.map((page, index) => (
           <React.Fragment key={index}>
-            {page.results.map((game) => (
-              <GameCardContainer key={game.id}>
-                {/* 点击名字会跳转，就是因为这个GameCard组件*/}
-                <GameCard game={game} />
+            {page.results.map((developer) => (
+              <GameCardContainer key={developer.user}>
+                <DeveloperCard developer={developer} />
               </GameCardContainer>
             ))}
           </React.Fragment>

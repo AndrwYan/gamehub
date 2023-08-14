@@ -55,7 +55,6 @@ const GameGrid = () => {
           <React.Fragment key={index}>
             {page.results.map((game) => (
               <GameCardContainer key={game.id}>
-                {/* 点击名字会跳转，就是因为这个GameCard组件*/}
                 <GameCard game={game} />
               </GameCardContainer>
             ))}

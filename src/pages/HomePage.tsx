@@ -1,6 +1,7 @@
 import { Grid, GridItem} from '@chakra-ui/react'
 import GameGrid from '../components/GameGrid'
 import DeveloperSearchInput from '../components/DeveloperSearchInput'
+import DeveloperGrid from '../components/DeveloperGrid'
 
 const HomePage = () => {   
   return (
@@ -12,7 +13,7 @@ const HomePage = () => {
   >   
     <GridItem area="main">
       <DeveloperSearchInput/>      
-      <GameGrid />
+      <DeveloperGrid />
     </GridItem>
   </Grid>
   )

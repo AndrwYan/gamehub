@@ -3,6 +3,7 @@ import ErrorPage from "./pages/ErrorPage";
 import GameDetailPage from "./pages/GameDetailPage";
 import HomePage from "./pages/HomePage";
 import Layout from "./pages/Layout";
+import DeveloperDetailPage from "./pages/DeveloperDetailPage";
 
 const router = createBrowserRouter([
   {
@@ -12,7 +13,7 @@ const router = createBrowserRouter([
     // children:就是孩子路由
     children: [
       { index: true, element: <HomePage /> },
-      { path: 'games/:slug', element: <GameDetailPage /> }
+      { path: 'developer/:slug', element: <DeveloperDetailPage /> }
     ]
   }
 ]);

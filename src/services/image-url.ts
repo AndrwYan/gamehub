@@ -1,6 +1,6 @@
 import noImage from '../assets/no-image-placeholder.webp';
 
-const getCroppedImageUrl = (url: string) => {
+export const getCroppedImageUrl = (url: string) => {
   if (!url) return noImage;
   
   const target = 'media/';
@@ -8,4 +8,9 @@ const getCroppedImageUrl = (url: string) => {
   return url.slice(0, index) + 'crop/600/400/' + url.slice(index);
 }
 
-export default getCroppedImageUrl;
+
+export const getProfileImageUrl = (imagePath: string) => {
+  const baseUrl = 'http://localhost:8001'; // 这是您的开发服务器的基本URL
+  return `${baseUrl}${imagePath}`;
+}
+

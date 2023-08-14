@@ -19,11 +19,13 @@ const DeveloperSearchInput = () => {
       </Center>
       <form onSubmit={(event) => {
         event.preventDefault();
+
         if (ref.current) {
+          // 全局状态函数改变状态
           setSearchText(ref.current.value);
           navigate('/');
         }
-      }}>
+      }}>                        
         <InputGroup>
           <InputLeftElement children={<BsSearch />} />
           <Input ref={ref} borderRadius={20} placeholder="Search developer..." variant="filled" />
