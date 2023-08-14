@@ -28,7 +28,7 @@ const DeveloperCard = ({ developer }: Props) => {
           />
           <div>
             <Heading fontSize="2xl">
-              <Link to={'/games/' + developer.user}>{developer.name}</Link>
+              <Link to={'/developer/' + developer.user}>{developer.name}</Link>
             </Heading>
             <Text fontSize="sm" color="gray.600">
               {developer.short_intro}
@@ -60,5 +60,4 @@ const DeveloperCard = ({ developer }: Props) => {
     </Box>
   );
 };
-
 export default DeveloperCard;

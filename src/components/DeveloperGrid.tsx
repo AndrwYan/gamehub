@@ -8,11 +8,11 @@ import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import GameCardContainer from './GameCardContainer';
 import GameCardSkeleton from './GameCardSkeleton';
-import useDeveloper from '../hooks/useDeveloper';
+import useDevelopers from '../hooks/useDevelopers';
 import DeveloperCard from './DeveloperCard';
 
 const DeveloperGrid = () => {
-  
+
   const {
     data,
     error,
@@ -20,7 +20,7 @@ const DeveloperGrid = () => {
     isFetchingNextPage,
     fetchNextPage,
     hasNextPage,
-  } = useDeveloper();
+  } = useDevelopers();
 
   const skeletons = [1, 2, 3, 4, 5, 6];
 
