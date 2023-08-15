@@ -12,12 +12,12 @@ const axiosInstance = axios.create({
 
 class APIClient<T> {
   endpoint: string;
-  
+
   //接口传递的路径
   constructor(endpoint: string) {
     this.endpoint = endpoint;
   }
-  
+
   getDevelopersAll = (config: AxiosRequestConfig) => {
     return axiosInstance
       .get<FetchResponse<T>>(this.endpoint, config)

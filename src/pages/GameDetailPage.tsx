@@ -21,7 +21,7 @@ const GameDetailPage = () => {
   if (isLoading) return <Spinner />;
 
   if (error || !game) throw error;
-
+  
   return (
     <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5}>
       <GridItem>

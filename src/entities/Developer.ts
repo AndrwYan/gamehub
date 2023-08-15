@@ -1,4 +1,4 @@
-export default interface Profile {  
+export default interface Developer {  
     user: string;
     name: string;
     email: string;

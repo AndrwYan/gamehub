@@ -39,7 +39,6 @@ const DeveloperCard = ({ developer }: Props) => {
         {/* <Text mt={3} isTruncated>
           {developer.bio}
         </Text> */}
-
         <Flex mt={3} flexWrap="wrap">
             {developer.skills.map((skill, index) => (
             <Tag

@@ -9,7 +9,6 @@ const router = createBrowserRouter([
     path: '/',
     element: <Layout />,
     errorElement: <ErrorPage />,
-    // children:就是孩子路由
     children: [
       { index: true, element: <HomePage /> },
       { path: 'developer/:slug', element: <DeveloperDetailPage /> }

@@ -12,8 +12,8 @@ import useDevelopers from '../hooks/useDevelopers';
 import DeveloperCard from './DeveloperCard';
 
 const DeveloperGrid = () => {
-
-  const {
+  
+const {
     data,
     error,
     isLoading,
@@ -43,7 +43,7 @@ const DeveloperGrid = () => {
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
         // 单元格之间的间距        
-        spacing={6}        
+        spacing={3}        
         // 内容和容器之间的内边距
         padding="10px"
       >
