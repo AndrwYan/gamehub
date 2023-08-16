@@ -5,21 +5,20 @@ import APIClient, {
   FetchResponse,
 } from '../services/api-dev-client';
 
-import Developer from '../entities/Developer';
 import useDeveloperStore from '../developerStore';
+import Project from '../entities/Project';
 
-const apiClient = new APIClient<Developer>('');
-
+const apiClient = new APIClient<Project>('');
 const useProjects = () => {  
   // 状态变更的时候都需要调用状态
-  const developerQuery = useDeveloperStore((s) => s.developerQuery);
+  const projectQuery = useDeveloperStore((s) => s.developerQuery);
   
-  return useInfiniteQuery<FetchResponse<Developer>, Error>({
-    queryKey: ['developers', developerQuery],
+  return useInfiniteQuery<FetchResponse<Project>, Error>({
+    queryKey: ['projects', projectQuery],
     queryFn: ({ pageParam = 1 }) =>
       apiClient.getDevelopersAll({
         params: {
-          search: developerQuery.searchText,
+          search: projectQuery.searchText,
        },
       }),
     getNextPageParam: (lastPage, allPages) => {

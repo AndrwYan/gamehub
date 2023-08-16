@@ -6,11 +6,10 @@ import {
 
 import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import useGames from '../hooks/useGames';
-import GameCard from './GameCard';
 import GameCardContainer from './GameCardContainer';
 import GameCardSkeleton from './GameCardSkeleton';
 import ProjectCard from './ProjectCard';
+import useProjects from '../hooks/useProjects';
 
 const ProjectGrid = () => {
 
@@ -21,7 +20,7 @@ const ProjectGrid = () => {
     isFetchingNextPage,
     fetchNextPage,
     hasNextPage,
-  } = useGames();
+  } = useProjects();
 
   const skeletons = [1, 2, 3, 4, 5, 6];
 
