@@ -23,7 +23,7 @@ class APIClient<T> {
       .get<FetchResponse<T>>(this.endpoint, config)
       .then((res) => res.data);
   };
-
+  
   getDeveloper = (id: string | string) => {
     return axiosInstance
       .get<T>(this.endpoint + '/' + id)

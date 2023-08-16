@@ -12,14 +12,13 @@ import {
 import { useParams } from 'react-router-dom';
 import useDeveloper from '../hooks/useDeveloper';
 import SingleProfileCard from '../components/SingleProfileCard';
+import ExpandableText from '../components/ExpandableText';
 
-const DeveloperDetailPage = () => {  
-  
+const DeveloperDetailPage = () => {      
   const { slug } = useParams();
   const { data: profile, isLoading, error } = useDeveloper(slug!);
 
   if (isLoading) return <Spinner />;
-
   if (error || !profile) throw error;
 
   return (
@@ -29,11 +28,15 @@ const DeveloperDetailPage = () => {
           <SingleProfileCard profile={profile}/>
         </GridItem>
         <GridItem marginLeft="-24">
-          <Box>
-              <Heading size="md" mb="2">
-              About Me
-              </Heading>
-              
+          <Box>                                                  
+              {/* mb控制组件 */}
+              <Box mb="4">
+                <Heading size="md" mb="2">
+                  About Me
+                </Heading>
+                <ExpandableText>{profile.bio}</ExpandableText>
+              </Box>
+
               <Heading size="md" mb="2">
                 Top Skills
               </Heading>

@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 interface DeveloperQuery {
-  searchText?: string;
+  searchText ?: string;
 }
 
 interface DeveloperQueryStore {
