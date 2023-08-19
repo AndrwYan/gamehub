@@ -50,10 +50,10 @@ const DeveloperCard = ({ developer }: Props) => {
                 borderRadius="full"
                 py={1}
                 px={3}
-            >
-          {skill}
-        </Tag>
-      ))}
+                      >
+               {skill}
+            </Tag>
+          ))}
         </Flex>
       </Box>
     </Box>

@@ -26,7 +26,7 @@ const Header = () => {
 
           <ListItem className="header__menuSeparator" style={{ height: '25px', borderRight: '1px solid white' }} />
           <ListItem className="header__menuItem" style={{ margin: '0 20px' }}>
-            <Link to="/projects" style={{ fontSize: '25px' }}>
+            <Link to="/" style={{ fontSize: '25px' }}>
               Article
             </Link>
           </ListItem>

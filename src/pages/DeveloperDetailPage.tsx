@@ -13,6 +13,8 @@ import { useParams } from 'react-router-dom';
 import useDeveloper from '../hooks/useDeveloper';
 import SingleProfileCard from '../components/SingleProfileCard';
 import ExpandableText from '../components/ExpandableText';
+import ProjectCard from '../components/ProjectCard';
+import GameCardContainer from '../components/GameCardContainer';
 
 const DeveloperDetailPage = () => {      
   const { slug } = useParams();
@@ -23,12 +25,13 @@ const DeveloperDetailPage = () => {
 
   return (
     <Box marginTop="1px" marginLeft="100px">
-      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5}>
+      <SimpleGrid columns={{ base: 1, md: 2 }} >
         <GridItem>
           <SingleProfileCard profile={profile}/>
         </GridItem>
-        <GridItem marginLeft="-24">
-          <Box>                                                  
+
+        <GridItem >
+          <Box >                                                  
               {/* mb控制组件 */}
               <Box mb="4">
                 <Heading size="md" mb="2">
@@ -49,6 +52,7 @@ const DeveloperDetailPage = () => {
                   </WrapItem>
                 ))}
               </Wrap>
+
               <Heading size="md" mb="2">
                 Other Skills
               </Heading>
@@ -60,8 +64,22 @@ const DeveloperDetailPage = () => {
                     </Badge>
                   </WrapItem>
                 ))}
-              </Wrap>
+              </Wrap>              
           </Box>
+
+          <Box mt="20px">
+            <Heading size="md" mb="4">
+                Projects
+            </Heading>  
+            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5}>
+            {/* 循环组件 */}
+              {profile.projects.map((project) => (
+                  <GameCardContainer key={project.projectId}>
+                    <ProjectCard project={project} />
+                  </GameCardContainer>
+              ))}
+            </SimpleGrid>  
+          </Box>        
         </GridItem>
       </SimpleGrid>
     </Box>  

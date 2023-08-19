@@ -1,12 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import APIClient from '../services/api-dev-client';
-import Profile from '../entities/Profile';
+import Project from '../entities/Project';
 
-const apiClient = new APIClient<Profile>('/profile');
+const apiClient = new APIClient<Project>('/projects/project');
 
 const useProject = (slug: string) =>
   useQuery({
-    queryKey: ['developer', slug],
+    queryKey: ['project', slug],
     queryFn: () => apiClient.getDeveloper(slug),
   });
 

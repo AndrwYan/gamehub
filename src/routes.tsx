@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import Layout from "./pages/Layout";
 import DeveloperDetailPage from "./pages/DeveloperDetailPage";
 import ProjectPage from "./pages/ProjectPage";
+import ProjectDetailPage from "./pages/ProjectDetailPage";
 
 const router = createBrowserRouter([
   {
@@ -13,7 +14,8 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: 'projects/', element: <ProjectPage /> },
-      { path: 'developer/:slug', element: <DeveloperDetailPage /> }
+      { path: 'developer/:slug', element: <DeveloperDetailPage /> },
+      { path: 'project/:slug', element: <ProjectDetailPage /> }
     ]
   }
 ]);

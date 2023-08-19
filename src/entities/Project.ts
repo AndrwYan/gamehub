@@ -1,4 +1,5 @@
 export default interface Project {        
+    projectId: string;
     title: string;
     description: string;
     featured_image: string;
@@ -7,4 +8,5 @@ export default interface Project {
     tags: string[];
     vote_total: number;
     vote_ratio: number;
+    author: string;
 }  

@@ -11,7 +11,6 @@ import { getProfileImageUrl } from '../services/image-url';
 interface Props{
     profile: Profile
 }
-
 const SingleProfileCard = ({profile}:Props) =>  {    
     return (
     <Box width="350px" height="500px" borderWidth="1px" borderRadius="lg" overflow="hidden">        
