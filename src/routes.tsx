@@ -5,8 +5,9 @@ import Layout from "./pages/Layout";
 import DeveloperDetailPage from "./pages/DeveloperDetailPage";
 import ProjectPage from "./pages/ProjectPage";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
+import LoginPage from "./pages/LoginPage";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter([  
   {
     path: '/',
     element: <Layout />,
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: 'projects/', element: <ProjectPage /> },
+      { path: 'logining/', element: <LoginPage /> },
       { path: 'developer/:slug', element: <DeveloperDetailPage /> },
       { path: 'project/:slug', element: <ProjectDetailPage /> }
     ]

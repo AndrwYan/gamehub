@@ -25,7 +25,7 @@ const ProjectCard = ({ project }: Props) => {
         <CardBody>          
           <HStack justifyContent="space-between" marginBottom={3}>          
             <Heading size="md" mb="2">
-              <Link to={'/project/' + project.id}> {project.title}</Link>
+              <Link to={'/project/' + project.projectId}> {project.title}</Link>
             </Heading>
           </HStack>
           <HStack justifyContent="space-between" marginBottom={3}>
