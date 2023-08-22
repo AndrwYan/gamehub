@@ -65,8 +65,7 @@ const DeveloperDetailPage = () => {
                   </WrapItem>
                 ))}
               </Wrap>              
-          </Box>
-
+          </Box>                    
           <Box mt="20px">
             <Heading size="md" mb="4">
                 Projects

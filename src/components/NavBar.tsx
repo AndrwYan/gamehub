@@ -1,12 +1,13 @@
 import { Box, Flex, Image, List, ListItem, Button } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.webp';
+import ColorModeSwitch from './ColorModeSwitch';
 
-const Header = () => {
-
+const Header = () => {  
   return (
     <Box as="header" bg="purple.600" p={4} color="white">
       <Flex alignItems="center" justifyContent="space-between" maxW="1200px" mx="auto">
+
         <Link to="/">
           <Image src={logo} boxSize="60px" objectFit="cover" />
         </Link>
@@ -38,6 +39,8 @@ const Header = () => {
             </Button>
           </Link>
         </Flex>
+        <ColorModeSwitch />
+
       </Flex>
     </Box>
   );

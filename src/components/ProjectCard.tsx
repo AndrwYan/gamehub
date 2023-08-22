@@ -22,10 +22,10 @@ const ProjectCard = ({ project }: Props) => {
     <div style={{ height: '300px', display: 'flex', flexDirection: 'column' }}>
       <Card style={{ flex: 1 }}>
         <Image  src={getProfileImageUrl(project.featured_image)} />
-        <CardBody>
+        <CardBody>          
           <HStack justifyContent="space-between" marginBottom={3}>          
             <Heading size="md" mb="2">
-              <Link to={'/project/' + project.projectId}> {project.title}</Link>
+              <Link to={'/project/' + project.id}> {project.title}</Link>
             </Heading>
           </HStack>
           <HStack justifyContent="space-between" marginBottom={3}>
