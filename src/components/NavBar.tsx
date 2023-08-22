@@ -34,7 +34,7 @@ const Header = () => {
         </List>              
         <Flex alignItems="center">
           <Link to="/login">
-            <Button variant="outline" colorScheme="whiteAlpha">
+            <Button variant="outline" colorScheme="whiteAlpha"  style={{ fontSize: '25px' }}>
               Login/Sign Up
             </Button>
           </Link>
