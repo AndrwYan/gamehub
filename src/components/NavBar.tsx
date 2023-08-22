@@ -33,7 +33,7 @@ const Header = () => {
           </ListItem>
         </List>              
         <Flex alignItems="center">
-          <Link to="/login">
+          <Link to="/logining">
             <Button variant="outline" colorScheme="whiteAlpha"  style={{ fontSize: '25px' }}>
               Login/Sign Up
             </Button>

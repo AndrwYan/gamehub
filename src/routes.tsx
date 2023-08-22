@@ -6,6 +6,7 @@ import DeveloperDetailPage from "./pages/DeveloperDetailPage";
 import ProjectPage from "./pages/ProjectPage";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
 import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
 
 const router = createBrowserRouter([  
   {
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: 'projects/', element: <ProjectPage /> },
       { path: 'logining/', element: <LoginPage /> },
+      { path: 'signup/', element: <SignupPage /> },
       { path: 'developer/:slug', element: <DeveloperDetailPage /> },
       { path: 'project/:slug', element: <ProjectDetailPage /> }
     ]
@@ -23,3 +25,4 @@ const router = createBrowserRouter([
 ]);
 
 export default router;
+
