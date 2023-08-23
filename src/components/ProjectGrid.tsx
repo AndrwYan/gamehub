@@ -52,7 +52,7 @@ const ProjectGrid = () => {
         {data?.pages.map((page, index) => (
           <React.Fragment key={index}>
             {page.results.map((project) => (
-              <GameCardContainer key={project.id}>
+              <GameCardContainer key={project.projectId}>
                 <ProjectCard project={project} />
               </GameCardContainer>
             ))}

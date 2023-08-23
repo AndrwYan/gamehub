@@ -12,7 +12,7 @@ const apiClient = new APIClient<Project>('/projects');
 const useProjects = () => {  
   // 状态变更的时候都需要调用状态
   const projectQuery = useDeveloperStore((s) => s.developerQuery);
-  
+
   return useInfiniteQuery<FetchResponse<Project>, Error>({
     queryKey: ['projects', projectQuery],
     queryFn: ({ pageParam = 1 }) =>
@@ -24,7 +24,7 @@ const useProjects = () => {
     getNextPageParam: (lastPage, allPages) => {
       return lastPage.next ? allPages.length + 1 : undefined;
     },
-    staleTime: ms('24h'),
+    staleTime: ms('2h'),
   });
 };
 

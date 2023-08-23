@@ -10,6 +10,7 @@ import {
 import { Link } from 'react-router-dom';
 
 const LoginPage = () => {
+    
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
@@ -24,7 +25,8 @@ const LoginPage = () => {
 
   const handleLogin = () => {
     // 在真实应用中，这里应该进行与后端的交互来验证用户名和密码
-    // 这里仅作为示例，演示登录状态的切换
+
+    
     setLoggedIn(true);
   };
 

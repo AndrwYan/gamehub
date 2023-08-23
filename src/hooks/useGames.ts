@@ -11,6 +11,8 @@ const apiClient = new APIClient<Game>('/games');
 const useGames = () => {  
   // 状态变更的时候都需要调用状态
   const gameQuery = useGameQueryStore((s) => s.gameQuery);
+
+  
   return useInfiniteQuery<FetchResponse<Game>, Error>({
     queryKey: ['games', gameQuery],
     queryFn: ({ pageParam = 1 }) =>
