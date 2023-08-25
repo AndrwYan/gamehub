@@ -9,13 +9,14 @@ import {
   FormLabel,
   useToast,
 } from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import APIClient from '../services/api-dev-client';
 import token from '../entities/Token';
 
 const LoginPage = () => {
 
   const toast = useToast();
+  const navigate = useNavigate();
   
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -46,6 +47,9 @@ const LoginPage = () => {
         localStorage.setItem('jwtToken',response.token);
         
         setLoggedIn(true);
+
+        // 登录成功后跳转到 account 页面
+        navigate('/account');
       })
       .catch(error => {
         if (error.response && error.response.status === 400) {
