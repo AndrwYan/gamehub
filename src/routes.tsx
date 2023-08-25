@@ -7,6 +7,7 @@ import ProjectPage from "./pages/ProjectPage";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
+import AccountPage from "./pages/AccountPage";
 
 const router = createBrowserRouter([  
   {
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: 'projects/', element: <ProjectPage /> },
       { path: 'logining/', element: <LoginPage /> },
+      { path: 'account/', element: <AccountPage /> },
       { path: 'signup/', element: <SignupPage /> },
       { path: 'developer/:slug', element: <DeveloperDetailPage /> },
       { path: 'project/:slug', element: <ProjectDetailPage /> }

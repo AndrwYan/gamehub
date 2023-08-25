@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import {
   Box,
   Heading,
@@ -6,11 +7,16 @@ import {
   Button,
   FormControl,
   FormLabel,
+  useToast,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+import APIClient from '../services/api-dev-client';
+import token from '../entities/Token';
 
 const LoginPage = () => {
-    
+
+  const toast = useToast();
+  
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
@@ -23,12 +29,37 @@ const LoginPage = () => {
     setPassword(event.target.value);
   };
 
-  const handleLogin = () => {
-    // 在真实应用中，这里应该进行与后端的交互来验证用户名和密码
+  const apiClient = new APIClient<token>('/login/');
 
-    
-    setLoggedIn(true);
-  };
+  const handleLogin = () => {
+
+    const loginData = {
+      data: {
+        username: username,
+        password: password,
+      },
+    };
+
+    // 登录的逻辑
+    apiClient.login(loginData)
+      .then(response => {
+        localStorage.setItem('jwtToken',response.token);
+        
+        setLoggedIn(true);
+      })
+      .catch(error => {
+        if (error.response && error.response.status === 400) {
+          const errorMessage = error.response.data.error;
+          toast({
+            title: 'Login Error',
+            description: errorMessage,
+            status: 'error',
+            duration: 5000,
+            isClosable: true,
+          });
+        } 
+      });
+    } 
 
   const handleLogout = () => {
     setLoggedIn(false);

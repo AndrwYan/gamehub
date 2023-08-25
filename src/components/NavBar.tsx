@@ -27,8 +27,8 @@ const Header = () => {
 
           <ListItem className="header__menuSeparator" style={{ height: '25px', borderRight: '1px solid white' }} />
           <ListItem className="header__menuItem" style={{ margin: '0 20px' }}>
-            <Link to="/" style={{ fontSize: '25px' }}>
-              Article
+            <Link to="/account" style={{ fontSize: '25px' }}>
+              Account
             </Link>
           </ListItem>
         </List>              
