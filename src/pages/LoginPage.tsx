@@ -12,15 +12,17 @@ import {
 import { Link, useNavigate } from 'react-router-dom';
 import APIClient from '../services/api-dev-client';
 import token from '../entities/Token';
+import { useAuthStore } from '../LoginStore';
 
 const LoginPage = () => {
 
   const toast = useToast();
   const navigate = useNavigate();
+
+  const login = useAuthStore((s) => s.login );
   
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [loggedIn, setLoggedIn] = useState(false);
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -44,10 +46,10 @@ const LoginPage = () => {
     // 登录的逻辑
     apiClient.login(loginData)
       .then(response => {
-        localStorage.setItem('jwtToken',response.token);
         
-        setLoggedIn(true);
-
+        // 调用状态函数
+        login(response.token); 
+       
         // 登录成功后跳转到 account 页面
         navigate('/account');
       })
@@ -65,23 +67,6 @@ const LoginPage = () => {
       });
     } 
 
-  const handleLogout = () => {
-    setLoggedIn(false);
-    setUsername('');
-    setPassword('');
-  };
-
-  if (loggedIn) {
-    return (
-      <Box textAlign="center">
-        <Heading>Welcome, {username}!</Heading>
-        <Button mt={4} onClick={handleLogout}>
-          Logout
-        </Button>
-      </Box>
-    );
-  }
-  
   return (
     <Box maxW="md" mx="auto" mt={8} p={4} >
       <Heading mb={4}>Account Login</Heading>

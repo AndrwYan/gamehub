@@ -14,8 +14,7 @@ const useDeveloperStore = create<DeveloperQueryStore>((set) => ({
 
     developerQuery: {},
 
-    setSearchText: (searchText) =>
-    set(() => ({ developerQuery: { searchText } })),
+    setSearchText: (searchText) => set(() => ({ developerQuery: { searchText } })),
 
 }));
 

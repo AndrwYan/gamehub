@@ -7,9 +7,10 @@ import useDeveloperStore from "../developerStore";
 const ProjectSearchInput = () => {
   const ref = useRef<HTMLInputElement>(null);
 
+  // 状态的改变
   const setSearchText = useDeveloperStore((s) => s.setSearchText);
   const navigate = useNavigate();
-  
+    
   return (    
     // marginBottom设置：和grid设置间距
     <Box marginBottom="40px">      

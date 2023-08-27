@@ -42,8 +42,4 @@ const useGameQueryStore = create<GameQueryStore>((set) => ({
     })),
 }));
 
-
-
-
-
 export default useGameQueryStore;
