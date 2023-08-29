@@ -16,7 +16,8 @@ import ExpandableText from '../components/ExpandableText';
 import ProjectCard from '../components/ProjectCard';
 import GameCardContainer from '../components/GameCardContainer';
 
-const DeveloperDetailPage = () => {      
+const DeveloperDetailPage = () => {            
+  // 获取到路径的参数
   const { slug } = useParams();
   const { data: profile, isLoading, error } = useDeveloper(slug!);
 
@@ -26,6 +27,7 @@ const DeveloperDetailPage = () => {
   return (
     <Box marginTop="1px" marginLeft="100px">
       <SimpleGrid columns={{ base: 1, md: 2 }} >
+        {/* 简历 */}
         <GridItem>
           <SingleProfileCard profile={profile}/>
         </GridItem>

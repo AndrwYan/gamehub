@@ -6,7 +6,7 @@ import { useAuthStore } from '../LoginStore';
 
 const Header = () => {  
 
-  const { isLoggedIn, login , logout } = useAuthStore();
+  const { isLoggedIn, login, token , logout } = useAuthStore();
 
   const handleLogout = () => {
     logout();
@@ -33,12 +33,12 @@ const Header = () => {
               Projects
             </Link>
           </ListItem>
-
-          { isLoggedIn && <ListItem className="header__menuItem" style={{ margin: '0 20px' }}>
+          
+          <ListItem className="header__menuItem" style={{ margin: '0 20px' }}>
             <Link to="/account" style={{ fontSize: '25px' }}>
               Account
             </Link>
-          </ListItem> }
+          </ListItem> 
 
         </List>              
         <Flex alignItems="center">                  

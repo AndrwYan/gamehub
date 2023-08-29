@@ -19,6 +19,7 @@ const LoginPage = () => {
   const toast = useToast();
   const navigate = useNavigate();
 
+  
   const login = useAuthStore((s) => s.login );
   
   const [username, setUsername] = useState('');
@@ -45,8 +46,7 @@ const LoginPage = () => {
 
     // 登录的逻辑
     apiClient.login(loginData)
-      .then(response => {
-        
+      .then(response => {        
         // 调用状态函数
         login(response.token); 
        

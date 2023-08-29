@@ -28,6 +28,7 @@ const DeveloperCard = ({ developer }: Props) => {
           />
           <div>
             <Heading fontSize="2xl">
+              {/* 点击名字跳转 */}
               <Link to={'/developer/' + developer.user}>{developer.name}</Link>
             </Heading>
             <Text fontSize="sm" color="gray.600">
