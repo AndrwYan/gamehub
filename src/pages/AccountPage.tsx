@@ -8,20 +8,17 @@ import useDeveloper from '../hooks/useDeveloper';
 import AccountProfileCard from '../components/AccountProfileCard';
 
 const AccountPage = () => {
-
-
-
+  
+  // 初始化token的结果
   const tokenManager = new TokenManager();  
-
-
 
   // const navigate = useNavigate();
   // const { logout } = useAuthStore();
 
   const userId = tokenManager.getUserId();
 
-   // 调用之前封装的查询用户信息的组件
-   const { data: profile, isLoading, error } = useDeveloper(userId!);
+  // 调用之前封装的查询用户信息的组件
+  const { data: profile, isLoading, error } = useDeveloper(userId!);
 
   if (isLoading) return <Spinner />;
   if (error || !profile) throw error;

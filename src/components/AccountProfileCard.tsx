@@ -1,19 +1,54 @@
 import {
     Avatar,
     Box,
+    Button,
     Center,
     Wrap,
     WrapItem
   } from '@chakra-ui/react';
 import Profile from '../entities/Profile';
 import { getProfileImageUrl } from '../services/image-url';
+import EditProfileForm from './EditProfileForm';
+import { useState } from 'react';
 
-interface Props{
-    profile: Profile
+interface Props{ 
+  profile: Profile
 }
+
 const AccountProfileCard = ({profile}:Props) =>  {    
+
+  const [isEditOpen, setIsEditOpen] = useState(false);
+
+  const handleEditClick = () => {
+    setIsEditOpen(true);
+  };
+
+  const handleEditClose = () => {
+    setIsEditOpen(false);
+  };
+
+  const handleSaveProfile = (updatedProfile) => {
+
+    console.log('Updated profile:', updatedProfile);
+    
+  };
+
     return (
     <Box width="350px" height="500px" borderWidth="1px" borderRadius="lg" overflow="hidden">        
+      
+      <Center p="4">
+        <Button onClick={handleEditClick} >
+          Edit
+        </Button>
+      </Center>
+
+      <EditProfileForm
+        isOpen={isEditOpen}
+        onClose={handleEditClose}
+        onSave={handleSaveProfile}
+        initialProfile={profile} // Pass the current profile data
+      />
+
       <Center p="4">
         <Wrap>
             <WrapItem>
