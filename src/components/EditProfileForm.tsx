@@ -15,7 +15,7 @@ import {
 } from '@chakra-ui/react';
 
 const EditProfileForm = ({ isOpen, onClose, onSave, initialProfile }) => {
-
+    
   const [editedProfile, setEditedProfile] = useState(initialProfile);
 
   const handleInputChange = (field, value) => {
@@ -83,7 +83,6 @@ const EditProfileForm = ({ isOpen, onClose, onSave, initialProfile }) => {
             />            
           </FormControl>
 
-
           <FormControl mt={4}>
             <FormLabel>profile_image</FormLabel>
             <Input
@@ -91,10 +90,6 @@ const EditProfileForm = ({ isOpen, onClose, onSave, initialProfile }) => {
               onChange={(e) => handleInputChange('profile_image', e.target.value)}
             />
           </FormControl>
-
-          
-
-
 
         </ModalBody>
         <ModalFooter>

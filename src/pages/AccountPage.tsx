@@ -8,7 +8,7 @@ import useDeveloper from '../hooks/useDeveloper';
 import AccountProfileCard from '../components/AccountProfileCard';
 
 const AccountPage = () => {
-  
+
   // 初始化token的结果
   const tokenManager = new TokenManager();  
 
@@ -22,7 +22,7 @@ const AccountPage = () => {
 
   if (isLoading) return <Spinner />;
   if (error || !profile) throw error;
-
+  
   // useEffect(() => {    
   //   if (tokenManager.isTokenExpired()) {
   //     // 删掉Token，登录状态设置为false
