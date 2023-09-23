@@ -34,11 +34,11 @@ const Header = () => {
             </Link>
           </ListItem>
           
-          <ListItem className="header__menuItem" style={{ margin: '0 20px' }}>
+          { isLoggedIn && <ListItem className="header__menuItem" style={{ margin: '0 20px' }}>
             <Link to="/account" style={{ fontSize: '25px' }}>
               Account
             </Link>
-          </ListItem> 
+          </ListItem> }
 
         </List>              
         <Flex alignItems="center">                  

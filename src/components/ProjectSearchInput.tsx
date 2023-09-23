@@ -7,7 +7,7 @@ import useDeveloperStore from "../developerStore";
 const ProjectSearchInput = () => {
   const ref = useRef<HTMLInputElement>(null);
 
-  // 状态的改变
+  // 搜索条件的改变
   const setSearchText = useDeveloperStore((s) => s.setSearchText);
   const navigate = useNavigate();
     

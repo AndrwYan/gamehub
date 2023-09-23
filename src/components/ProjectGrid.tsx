@@ -12,6 +12,7 @@ import ProjectCard from './ProjectCard';
 import useProjects from '../hooks/useProjects';
 
 const ProjectGrid = () => {
+  
   const {
     data,
     error,

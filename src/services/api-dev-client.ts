@@ -16,21 +16,36 @@ class APIClient<T> {
   constructor(endpoint: string) {
     this.endpoint = endpoint;
   }  
+
   getDevelopersAll = (config: AxiosRequestConfig) => {
     return axiosInstance
       .get<FetchResponse<T>>(this.endpoint, config)
       .then((res) => res.data);
   };
+
   getDeveloper = (id: string | string) => {
     return axiosInstance
       .get<T>(this.endpoint + '/' + id)    
       .then((res) => res.data);
   };
+
+
   login = (config: AxiosRequestConfig) => {
     return axiosInstance
       .post<T>(this.endpoint, config)
       .then((res) => res.data);
   };  
+  
+  // 编辑用户资料接口
+  editProfile = (id: string, formData: FormData) => {
+    return axiosInstance
+      .post<T>(this.endpoint + '/' + id + '/', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+      .then((res) => res.data);
+  };
 
 }
 

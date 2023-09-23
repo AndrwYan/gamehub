@@ -14,9 +14,13 @@ import {
   Textarea,
 } from '@chakra-ui/react';
 
+import { getProfileImageUrl } from '../services/image-url';
+
 const EditProfileForm = ({ isOpen, onClose, onSave, initialProfile }) => {
-    
+
   const [editedProfile, setEditedProfile] = useState(initialProfile);
+  const [currentImage, setCurrentImage] = useState(initialProfile.profile_image);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const handleInputChange = (field, value) => {
     setEditedProfile((prevProfile) => ({
@@ -25,12 +29,32 @@ const EditProfileForm = ({ isOpen, onClose, onSave, initialProfile }) => {
     }));
   };
 
-  const handleSave = () => {
-    // 处理保存的逻辑
-    onSave(editedProfile);
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    setSelectedImage(file);
+    setCurrentImage(event.target.files[0].name);
+  };
+
+  const handleSave = async () => {
+    const formData = new FormData();
+    for (const key in editedProfile) {
+      if (key !== 'profile_image') {
+        formData.append(key, editedProfile[key]);
+      }
+    }
+
+    // Upload the new image file
+    if (selectedImage) {
+      formData.append('profile_image_file', selectedImage);
+    }
+
+    await onSave(formData);
     onClose();
   };
 
+  
+
+  
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
@@ -84,12 +108,57 @@ const EditProfileForm = ({ isOpen, onClose, onSave, initialProfile }) => {
           </FormControl>
 
           <FormControl mt={4}>
-            <FormLabel>profile_image</FormLabel>
+            <FormLabel>Profile Image</FormLabel>
+
             <Input
-              value={editedProfile.profile_image}
-              onChange={(e) => handleInputChange('profile_image', e.target.value)}
+              value={currentImage}
+            />
+
+            <Input type="file" accept="image/*" onChange={handleImageChange} />
+            {currentImage && <img src={currentImage} alt="Profile" />}
+          </FormControl>
+
+
+          <FormControl mt={4}>
+            <FormLabel>social_github</FormLabel>
+            <Input
+              value={editedProfile.social_github}
+              onChange={(e) => handleInputChange('social_github', e.target.value)}
             />
           </FormControl>
+
+          <FormControl mt={4}>
+            <FormLabel>social_twitter</FormLabel>
+            <Input
+              value={editedProfile.social_twitter}
+              onChange={(e) => handleInputChange('social_twitter', e.target.value)}
+            />
+          </FormControl>
+
+          <FormControl mt={4}>
+            <FormLabel>social_linkedin</FormLabel>
+            <Input
+              value={editedProfile.social_linkedin}
+              onChange={(e) => handleInputChange('social_linkedin', e.target.value)}
+            />
+          </FormControl>
+
+          <FormControl mt={4}>
+            <FormLabel>social_youtube</FormLabel>
+            <Input
+              value={editedProfile.social_youtube}
+              onChange={(e) => handleInputChange('social_youtube', e.target.value)}
+            />
+          </FormControl>
+
+          <FormControl mt={4}>
+            <FormLabel>social_website</FormLabel>
+            <Input
+              value={editedProfile.social_website}
+              onChange={(e) => handleInputChange('social_website', e.target.value)}
+            />
+          </FormControl>
+
 
         </ModalBody>
         <ModalFooter>
