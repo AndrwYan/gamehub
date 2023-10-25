@@ -10,6 +10,9 @@ import {
 
 import { useParams } from 'react-router-dom';
 import ExpandableText from '../components/ExpandableText';
+
+import { Link } from '@chakra-ui/react'
+import { ExternalLinkIcon } from '@chakra-ui/icons'
 import useProject from '../hooks/useProject';
 import ProjectScreenshots from '../components/ProjectScreenshots';
 
@@ -42,11 +45,18 @@ const ProjectDetailPage = () => {
               </Tag>
                 ))}
             </Flex>           
-          </Box>               
+          </Box>   
+          <Box>
+            <Heading size="md" mb="2">
+              SOURCE & CODE
+            </Heading>     
+            <Link href='https://chakra-ui.com' isExternal color='blue.500' >
+              GITHUB <ExternalLinkIcon mx='2px'/>
+            </Link>
+          </Box>            
         </GridItem>
         <GridItem >
           <Box >                                                  
-
               <ProjectScreenshots project={project} />
 
               <Heading size="md" mb="2" marginTop="30px" color="blue.400">

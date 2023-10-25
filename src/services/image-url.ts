@@ -10,7 +10,7 @@ export const getCroppedImageUrl = (url: string) => {
 }
 
 export const getProfileImageUrl = (imagePath: string) => {
-  const baseUrl = 'http://localhost:8001'; // 这是您的开发服务器的基本URL
+  const baseUrl = 'http://localhost:8000'; // 这是您的开发服务器的基本URL
   return `${baseUrl}${imagePath}`;
 }
 
